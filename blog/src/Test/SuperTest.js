@@ -21,7 +21,7 @@ class Suptest extends React.Component {
                 const id=i.toString();
                 const props = {
                     clickTest:()=>this.hello(id),//只是传属性，所以不能用onClick直接写事件，那样不过是传了一个onClick的props
-                    sss:(id===this.state.la?"hello":"")+' '+this.state.x,
+                    sss:(id===this.state.la?"hello":"")+' '+this.state.x,//传css的calssName
                   }
                 console.log(child)
                 console.log(i)

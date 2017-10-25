@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
-import './App.css';
+//import './App.css';
 import Li from './Li/Li.js'
 import Suptest from './Test/SuperTest.js'
-import AAA from './AAA.js'
-//import Test from './Test/Test.js'
+// import Menu from './Nav/Menu'
+// import SubMenu from './Nav/SubMenu'
+import Menu from './Menu/Menu'
+import MenuItem from './Menu/MenuItem'
+import SubMenu from'./Menu/SubMenu'
 class App extends Component {
   constructor() {
     super();
@@ -24,7 +27,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Li
+        {/* <Li
           type='login'
           value='hello'
           style={this.state.style[0]}
@@ -36,9 +39,33 @@ class App extends Component {
           <Suptest.Item>测试1</Suptest.Item>
           <Suptest.Item >测试23</Suptest.Item>
           <Suptest.Item >测试11123</Suptest.Item>
-          <AAA/>
-          <AAA/>
         </Suptest>
+      <Menu>
+      <SubMenu Title="高级导航栏">
+        <SubMenu.item>正式导航栏1</SubMenu.item>
+        <SubMenu.item>正式导航栏2</SubMenu.item>
+        <SubMenu.item>正式导航栏3</SubMenu.item>
+      </SubMenu>
+      <SubMenu Title="高级导航栏2">
+        <SubMenu.item>正式导航栏1</SubMenu.item>
+        <SubMenu.item>正式导航栏2</SubMenu.item>
+        <SubMenu.item>正式导航栏3</SubMenu.item>
+      </SubMenu>
+      </Menu>  */}
+      <Menu>
+        <SubMenu title="Title1">
+          <Menu.item>1</Menu.item>
+          <Menu.item>2</Menu.item>
+          <Menu.item>3</Menu.item>
+          <Menu.item>4</Menu.item>
+        </SubMenu>
+        <SubMenu title="Title2">
+          <Menu.item>1</Menu.item>
+          <Menu.item>2</Menu.item>
+          <Menu.item>3</Menu.item>
+          <Menu.item>4</Menu.item>
+        </SubMenu>
+      </Menu>
       </div>
     );
   }
