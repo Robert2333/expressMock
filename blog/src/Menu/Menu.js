@@ -17,11 +17,19 @@ class Menu extends React.Component {
     }
     itemClick=(subId,id)=>{
         console.log(`subId:${subId}&id:${id}`)
-        this.setState({menuActive:subId,itemActive:id})
+        this.setState({itemActive:id})
     }
     onSelect=(subId)=>{
         console.log(`subId:${subId}`)
-        this.setState({menuActive:subId})
+        let menuActive="";
+        if(this.state.menuActive==="")
+            menuActive=subId;
+        else if(this.state.menuActive===subId)
+            menuActive="";
+        else
+            menuActive=subId;
+        console.log(menuActive)
+        this.setState({menuActive:menuActive,itemActive:""})
     }
     getItem() {
         const {children} = this.props

@@ -24,7 +24,7 @@ class SubMenu extends React.Component{
         const {subId,title} = this.props;
         return(
             <div>
-            <h4 onClick={()=>this.context.onSelect(subId)}>{title}</h4>
+            <h4 onClick={()=>this.context.onSelect(subId.toString())}>{title}</h4>
             <ul>{this.getItem()}</ul>
             </div>
         )
