@@ -11,7 +11,7 @@ class SubMenu extends React.Component{
                 else {
                 const props = {
                     subId:this.props.subId,
-                    id:id,
+                    id:this.props.subId.toString()+id.toString(),
                   }
                 return React.cloneElement(child,props)
                 }

@@ -4,7 +4,7 @@ import SubMenu from './SubMenu'
 const PropTypes = require('prop-types');
 class Menu extends React.Component {
     state={
-        menuActive:"",//标题哪个被点击
+        menuActive:new Array(),//标题哪个被点击
         itemActive:"",//子标题哪个被点击
     }
     getChildContext() {
@@ -20,16 +20,13 @@ class Menu extends React.Component {
         this.setState({itemActive:id})
     }
     onSelect=(subId)=>{
-        console.log(`subId:${subId}`)
-        let menuActive="";
-        if(this.state.menuActive==="")
-            menuActive=subId;
-        else if(this.state.menuActive===subId)
-            menuActive="";
+        let menuActiveArray=this.state.menuActive;
+        if(menuActiveArray[subId]===1)
+        menuActiveArray[subId]="";
         else
-            menuActive=subId;
-        console.log(menuActive)
-        this.setState({menuActive:menuActive,itemActive:""})
+        menuActiveArray[subId]=1;
+        console.log(menuActiveArray);
+        this.setState({menuActive:menuActiveArray})
     }
     getItem() {
         const {children} = this.props
@@ -60,7 +57,7 @@ class Menu extends React.Component {
 Menu.childContextTypes = {
     onSelect: PropTypes.func,
     itemClick: PropTypes.func,
-    menuActive: PropTypes.string,
+    menuActive: PropTypes.array,
     itemActive:PropTypes.string,
 }
 Menu.subTitle=SubMenu;
