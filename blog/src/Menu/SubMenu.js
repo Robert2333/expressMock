@@ -1,8 +1,9 @@
 import React from 'react'
+import './SubMenu.css'
 const PropTypes=require('prop-types');
 class SubMenu extends React.Component{
     getItem(){
-        const {children,subId} = this.props;
+        const {children} = this.props;
         const item = React.Children.map(children, (child,id) => {
                 if (!child) {
                     alert('没有子元素')
@@ -15,7 +16,6 @@ class SubMenu extends React.Component{
                   }
                 return React.cloneElement(child,props)
                 }
-                return "";
             })
         return item;
     }    

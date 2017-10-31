@@ -4,7 +4,7 @@ import SubMenu from './SubMenu'
 const PropTypes = require('prop-types');
 class Menu extends React.Component {
     state={
-        menuActive:new Array(),//标题哪个被点击
+        menuActive:[],//标题哪个被点击
         itemActive:"",//子标题哪个被点击
     }
     getChildContext() {
@@ -42,13 +42,12 @@ class Menu extends React.Component {
                     }
                     return React.cloneElement(child, props)
                 }
-                return "";
             })
         return item;
     }
     render(){
         return(
-            <div>
+            <div style={{borderRight:2,borderColor:"black"}}>
             {this.getItem()}
             </div>
         )

@@ -1,8 +1,21 @@
 .active{
-    color:#ABC; 
+    color:#5bc0de;
+    border-left: 3px solid #5bc0de;
+    background-color:#ABC;
+    width: 50px;
+    margin-left:1px;
+    font-size:5px;
+
+}
+.default-item{
+    font-size:5px;
+    visibility: visible;
+    height:20px;
+
 }
 .default-item:hover{
     cursor: pointer;
+
 }
 .block{
     display: none;

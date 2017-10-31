@@ -1,74 +1,75 @@
-import React, {Component} from 'react';
-//import './App.css';
-import Li from './Li/Li.js'
-import Suptest from './Test/SuperTest.js'
-// import Menu from './Nav/Menu'
-// import SubMenu from './Nav/SubMenu'
-import Menu from './Menu/Menu'
-import MenuItem from './Menu/MenuItem'
-import SubMenu from'./Menu/SubMenu'
-class App extends Component {
-  constructor() {
-    super();
-  }
+import React from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+} from 'react-router-dom'
+import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import CardGroup from './CardGroup/CardGroup'
+import './App.css'
+const { Header, Content, Footer, Sider } = Layout;
+const {Item}=Menu;
 
-  test = (i) => {
-    alert(i)
-    let x = this.state.style;
-    x[i] = 'aaa';
-    this.setState({
-      style: ['aaa', 'li', 'li']
-    });
-  }
+class App extends React.Component{
+  
+  render(){
+    return(
+  <Router>
+    <div>
+    <Layout>
+    <Header className="header">
+     This is header;
+    </Header>
+    <Content style={{ padding: '30px 90px' }}>
+      <Layout style={{ padding: '24px 0', background: '#fff' }}>
+        <Sider width={320} style={{ background: '#fff' }} >
+          <Menu
+            mode="inline"
+            //defaultSelectedKeys={['1']}
+            defaultOpenKeys={['sub1']}
+            style={{ height: '100%' }}
+          >
+            <Menu.SubMenu key="sub1" title={<span><Icon type="user" />前端知识笔记</span>}>
+              <Item key="1" >React知识<Link to="/react"  /></Item>
+              <Item key="2">前段工程化<Link to="/webpack" /></Item>
+              <Item key="3">CSS笔记<Link to="/css" /></Item>
+              <Item key="4">杂项笔记<Link to="/other" /></Item>
+            </Menu.SubMenu>
+            <Menu.SubMenu key="sub2" title={<span><Icon type="laptop" />后端知识笔记</span>}>
+              <Item key="5">Java基础知识<Link to="/java" /></Item>
+              <Item key="6">Spring学习<Link to="/spring" /></Item>
+              <Item key="7">Mybaits学习<Link to="/mybatis" /></Item>
+              <Item key="8">杂项笔记<Link to="/other2" /></Item>
+            </Menu.SubMenu>
+            <Menu.Item key="sub3">
+              <Icon type="user" />
+              <span>自动化测试</span>
+              <Link to="/autotest" />
+            </Menu.Item>
+            <Menu.Item key="sub4">
+              <Icon type="user" />
+              <span>关于作者</span>
+              <Link to="/aboutMe" />
+            </Menu.Item>
+          </Menu>
+        </Sider>
+        <Content style={{ padding: '0 24px', minHeight: 960 }}>
+          <Route  path="/react" component={CardGroup}/>
+          <Route path="/webpack" component={CardGroup}/>
+          <Route path="/css" component={CardGroup}/>
+          <Route path="/other" component={CardGroup}/>
+        </Content>
+      </Layout>
+    </Content>
+    <Footer style={{ textAlign: 'center' }}>
+      Ant Design ©2016 Created by Ant UED
+    </Footer>
+  </Layout>
+      <hr/>
 
-  state = {
-    style: ['li', 'li', 'li']
-  };
-  render() {
-    return (
-      <div className="App">
-        {/* <Li
-          type='login'
-          value='hello'
-          style={this.state.style[0]}
-          onClick={() => this.test(1)}></Li>
-        <Li type='login' value='xu' style={this.state.style[1]}/>
-        <Li type='login' value='aaaaa'/>
-        <p onClick={this.test}>ceshishidhjishifasd</p>
-        <Suptest fatherText='一级菜单'>
-          <Suptest.Item>测试1</Suptest.Item>
-          <Suptest.Item >测试23</Suptest.Item>
-          <Suptest.Item >测试11123</Suptest.Item>
-        </Suptest>
-      <Menu>
-      <SubMenu Title="高级导航栏">
-        <SubMenu.item>正式导航栏1</SubMenu.item>
-        <SubMenu.item>正式导航栏2</SubMenu.item>
-        <SubMenu.item>正式导航栏3</SubMenu.item>
-      </SubMenu>
-      <SubMenu Title="高级导航栏2">
-        <SubMenu.item>正式导航栏1</SubMenu.item>
-        <SubMenu.item>正式导航栏2</SubMenu.item>
-        <SubMenu.item>正式导航栏3</SubMenu.item>
-      </SubMenu>
-      </Menu>  */}
-      <Menu>
-        <SubMenu title="Title1">
-          <Menu.item>1</Menu.item>
-          <Menu.item>2</Menu.item>
-          <Menu.item>3</Menu.item>
-          <Menu.item>4</Menu.item>
-        </SubMenu>
-        <SubMenu title="Title2">
-          <Menu.item>1</Menu.item>
-          <Menu.item>2</Menu.item>
-          <Menu.item>3</Menu.item>
-          <Menu.item>4</Menu.item>
-        </SubMenu>
-      </Menu>
-      </div>
-    );
+    </div>
+  </Router>
+    )
   }
 }
-
-export default App;
+export default App
