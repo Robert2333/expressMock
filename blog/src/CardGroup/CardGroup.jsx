@@ -19,8 +19,6 @@ export default class CardGroup extends React.Component{
             <div>
             {article}
             <Markdown />
-            <Mytext />
-            <p>hello</p>
             </div>
     )
     }
