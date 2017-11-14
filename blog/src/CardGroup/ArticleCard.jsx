@@ -17,7 +17,6 @@ export default class ArticleCard extends React.Component {
                 <Card 
                     title={this.props.title}
                     style={{
-                    width: '60%',margin:"auto"
                 }}>
                     <p className="summary">{this.props.summary}</p>
                     <hr/>
