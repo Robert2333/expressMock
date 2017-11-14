@@ -12,13 +12,12 @@ export default class ArticleCard extends React.Component {
     render() {
         console.log(this.props.match)
         return (
-
-            <div style={{marginTop:40}}>
-            <Link to={`${this.props.match.path}/${this.props.id}`}>
+            <div style={{marginTop:20}}>
+            <Link to={`/article/${this.props.id}`}>
                 <Card 
                     title={this.props.title}
                     style={{
-                    width: '80%',margin:"auto"
+                    width: '60%',margin:"auto"
                 }}>
                     <p className="summary">{this.props.summary}</p>
                     <hr/>

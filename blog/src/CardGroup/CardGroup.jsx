@@ -15,7 +15,6 @@ export default class CardGroup extends React.Component {
         console.log(type)
         fetch(`${Url.getCard}${type}`, {
                 method: 'GET',
-                mode: 'cors',
                 cache: 'default'
             }).then(function (response) {
             if (response.status !== 200) {
