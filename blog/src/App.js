@@ -24,7 +24,6 @@ class App extends React.Component{
     <Content style={{ padding: '30px 90px' }}>
       <Layout style={{ padding: '24px 0', background: '#fff' }}>
         <Sider width={320} style={{ background: '#fff' }} >
-        <Sider width={280} style={{ background: '#fff' }} >
           <Menu
             mode="inline"
             //defaultSelectedKeys={['1']}
