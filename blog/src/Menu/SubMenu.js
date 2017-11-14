@@ -1,5 +1,4 @@
 import React from 'react'
-import './SubMenu.css'
 const PropTypes=require('prop-types');
 class SubMenu extends React.Component{
     getItem(){

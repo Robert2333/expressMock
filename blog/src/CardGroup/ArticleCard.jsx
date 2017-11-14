@@ -13,7 +13,7 @@ export default class ArticleCard extends React.Component {
         console.log(this.props.match)
         return (
             <div style={{marginTop:20}}>
-            <Link to={`${this.props.match.path}/${this.props.id}`}>
+            <Link to={`/article/${this.props.id}`}>
                 <Card 
                     title={this.props.title}
                     style={{

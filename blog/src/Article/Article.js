@@ -1,19 +1,12 @@
 import React from 'react'
-import AriticleCard from './ArticleCard'
-import Markdown from '../Markdown/Markdown'
 import Url from '../URL/Url.js'
-export default class CardGroup extends React.Component {
-    state = {
-        article: ``,
-        markarticle: ""
-    };
+export default class Article extends React.Component{
+    state={article:""}
+    //http://localhost:8080/myBlog/GetConcrete?id=${this.props.match.params.id
     componentDidMount = () => {
         //fetch请求
         var state = this;
-        var type=this.props.match.path;
-        type=type.split("/")[1]
-        console.log(type)
-        fetch(`${Url.getCard}${type}`, {
+        fetch(`${Url.getArticle}${this.props.match.params.id}`, {
                 method: 'GET',
                 mode: 'cors',
                 cache: 'default'
@@ -34,28 +27,25 @@ export default class CardGroup extends React.Component {
             });
     }
 
+
     render() {
         if (this.state.article !== ``) {
-            console.log(this.state.article)
-            console.log(this.props.match.path)
             // var cardGroup = JSON.parse(this.state.article) //eval('(' +this.state.article
             // + ')');
             var cardGroup = this.state.article;
             var article = cardGroup.map((child, id) => {
-                return <AriticleCard
-                    {...this.props}
-                    title={child.title}
-                    summary={child.abscontent}
-                    date={child.time}
-                    id={child.id}
-                    key={child.id}/>
+                return (
+                    <div>
+                    <h1>{child.title}</h1>
+                    <p>{child.content}</p>
+                    </div>
+                )
             });
         }
 
         return (
             <div>
                 {article}
-                <Markdown/>
             </div>
         )
     }

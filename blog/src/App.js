@@ -4,7 +4,8 @@ import {
   Route,
   Link,
 } from 'react-router-dom'
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import Article from './Article/Article.js'
+import { Layout,Icon,Menu } from 'antd';
 import CardGroup from './CardGroup/CardGroup'
 import './App.css'
 const { Header, Content, Footer, Sider } = Layout;
@@ -54,7 +55,8 @@ class App extends React.Component{
           </Menu>
         </Sider>
         <Content style={{ padding: '0 24px', minHeight: 960 }}>
-          <Route  path="/react" component={CardGroup}/>
+          <Route path="/react" component={CardGroup}/>
+          <Route path="/article/:id" component={Article}/>
           <Route path="/webpack" component={CardGroup}/>
           <Route path="/css" component={CardGroup}/>
           <Route path="/other" component={CardGroup}/>
